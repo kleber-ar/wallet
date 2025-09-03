@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Login />} />
-      <Route path='/carteira' element={<Carteira />} />
+      {/*<Route path='/carteira' element={<Carteira />} />*/}
     </Routes>
   )
 }
