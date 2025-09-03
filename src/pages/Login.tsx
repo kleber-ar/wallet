@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setEmail } from "../redux/actions";
 
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  const [email, setEmailInput] = useState('');
   const [password, setpassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isPasswordValid = password.length >= 6;
@@ -14,6 +17,7 @@ export default function Login() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (isFormValid) {
+      dispatch(setEmail(email));
       navigate('/carteira')
     }
   }
@@ -25,7 +29,7 @@ export default function Login() {
           type="email"
           placeholder="E-mail"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmailInput(e.target.value)}
         />
         <input
           type="password"
