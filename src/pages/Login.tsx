@@ -26,12 +26,14 @@ export default function Login() {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          data-testid='email-input'
           type="email"
           placeholder="E-mail"
           value={email}
           onChange={(e) => setEmailInput(e.target.value)}
         />
         <input
+          data-testid='password-input'
           type="password"
           placeholder="Senha"
           value={password}
