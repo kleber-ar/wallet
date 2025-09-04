@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { legacy_createStore as createStore, type Store } from 'redux';
 import { render } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import rootReducer, { type RootState } from '../../redux/reducers';
 
 type Options = {
@@ -57,5 +58,10 @@ export function renderWithRouterAndRedux(
     initialEntries = ['/'],
   } = options;
 
-  return renderWithRedux(withRouter(component, initialEntries), options);
+  const result = renderWithRedux(withRouter(component, initialEntries), options);
+  const user = userEvent.setup();
+
+  return {
+    ...result, user,
+  };
 }
