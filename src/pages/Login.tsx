@@ -40,7 +40,7 @@ export default function Login() {
           minLength={6}
           onChange={(e) => setpassword(e.target.value)}
         />
-        <button type="submit" disabled={!isEmailValid}>
+        <button type="submit" disabled={!isFormValid}>
           Entrar
         </button>
       </form>
