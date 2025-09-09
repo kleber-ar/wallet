@@ -1,5 +1,6 @@
 import type { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import type { ExpenseType } from "../../types";
+import type { RootState } from "../reducers";
 
 export const SET_EMAIL = 'SET_EMAIL';
 export const SET_CURRENCIES = "SET_CURRENCIES";
@@ -31,3 +32,17 @@ export const fetchCurrencies = () => {
     dispatch(setCurrencies(currencies));
   };
 };
+
+//Thunk para adicionar despesa com exchangeRates atualizadas
+export const fetchEndAddExpense = (expenseData: ExpenseType) => async (dispatch: Dispatch, getState: () => RootState) => {
+  const res = await fetch("https://economia.awesomeapi.com.br/json/all");
+  const exchangeRates = await res.json();
+  const state = getState();
+  const nextId = state.wallet.expenses.length;
+  const expense = {
+    ...expenseData,
+    id: nextId,
+    exchangeRates,
+  };
+  dispatch(addExpense(expense));
+}
