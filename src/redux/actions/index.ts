@@ -6,6 +6,7 @@ export const SET_EMAIL = 'SET_EMAIL';
 export const SET_CURRENCIES = "SET_CURRENCIES";
 export const ADD_EXPENSE = "ADD_EXPENSE";
 export const DELETE_EXPENSE = "DELETE_EXPENSE";
+export const EDIT_EXPENSE = "EDIT_EXPENSE";
 
 type SetEmailAction = {
   type: typeof SET_EMAIL;
@@ -27,8 +28,13 @@ type DeleteExpenseAction = {
   payload: number,
 }
 
+type EditExpenseAction = {
+  type: typeof EDIT_EXPENSE;
+  payload: ExpenseType;
+}
+
 // union type para todas as actions
-export type AppAction = SetEmailAction | SetCurrenciesAction | AddExpenseAction | DeleteExpenseAction;
+export type AppAction = SetEmailAction | SetCurrenciesAction | AddExpenseAction | DeleteExpenseAction | EditExpenseAction;
 
 export function setEmail(email: string) {
   return {
@@ -51,6 +57,11 @@ export const deleteExpense = (id: number) => ({
   type: DELETE_EXPENSE,
   payload: id,
 } as DeleteExpenseAction)
+
+export const editExpense = (updateExpense: ExpenseType) => ({
+  type: EDIT_EXPENSE,
+  payload: updateExpense,
+})
 
 // Thunk do fetch currencies vindo da API
 export const fetchCurrencies = () => {
