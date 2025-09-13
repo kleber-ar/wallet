@@ -1,8 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/reducers";
+import { deleteExpense } from "../redux/actions";
 
 export default function Table() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
+  const dispach = useDispatch();
+
+  const handleDelete = (id: number) => {
+    dispach(deleteExpense(id))
+  }
 
   return (
     <table border={1} cellSpacing={0} cellPadding={5}>
@@ -41,7 +47,7 @@ export default function Table() {
               <td>Real</td>
               <td>
                 <button>Editar</button>
-                <button>Excluir</button>
+                <button onClick={() => handleDelete(id)}>Excluir</button>
               </td>
             </tr>
           );

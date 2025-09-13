@@ -5,6 +5,7 @@ import type { RootState } from "../reducers";
 export const SET_EMAIL = 'SET_EMAIL';
 export const SET_CURRENCIES = "SET_CURRENCIES";
 export const ADD_EXPENSE = "ADD_EXPENSE";
+export const DELETE_EXPENSE = "DELETE_EXPENSE";
 
 type SetEmailAction = {
   type: typeof SET_EMAIL;
@@ -21,8 +22,13 @@ type AddExpenseAction = {
   payload: ExpenseType;
 };
 
+type DeleteExpenseAction = {
+  type: typeof DELETE_EXPENSE;
+  payload: number,
+}
+
 // union type para todas as actions
-export type AppAction = SetEmailAction | SetCurrenciesAction | AddExpenseAction;
+export type AppAction = SetEmailAction | SetCurrenciesAction | AddExpenseAction | DeleteExpenseAction;
 
 export function setEmail(email: string) {
   return {
@@ -40,6 +46,11 @@ export const addExpense = (expense: ExpenseType) => ({
   type: ADD_EXPENSE,
   payload: expense,
 } as AddExpenseAction);
+
+export const deleteExpense = (id: number) => ({
+  type: DELETE_EXPENSE,
+  payload: id,
+} as DeleteExpenseAction)
 
 // Thunk do fetch currencies vindo da API
 export const fetchCurrencies = () => {
