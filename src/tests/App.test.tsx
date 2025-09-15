@@ -36,3 +36,31 @@ describe('01 [LOGIN] - Teste da pagina de login.', () => {
     waitFor(() => expect(global.window.location.pathname).toEqual('/carteira'));
   });
 });
+
+describe('02 [CARTEIRA] - Teste da pagina de carteira.', () => {
+
+  it('testa os fields Email, total e moeda no header', async () => {
+    const { user } = renderWithRouterAndRedux(<App />);
+
+    const inputEmail = screen.getByTestId('email-input');
+    const inputPassword = screen.getByTestId('password-input');
+    const buttonLogin = screen.getByRole('button');
+
+    expect(inputEmail).toBeInTheDocument();
+
+    await user.type(inputEmail, 'alguem@email.com');
+    await user.type(inputPassword, '123456');
+
+    expect(buttonLogin).toBeEnabled();
+
+    await user.click(buttonLogin);
+
+    const emailField = await screen.findByTestId('email-field');
+    const totalField = await screen.findByTestId('total-field');
+    const currencyField = await screen.findByTestId('header-currency-field');
+
+    expect(emailField).toHaveTextContent('alguem@email.com');
+    expect(totalField).toHaveTextContent('0.00');
+    expect(currencyField).toHaveTextContent('BRL');
+  });
+});
