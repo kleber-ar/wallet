@@ -60,7 +60,7 @@ export default function Table() {
                 <td>Real</td>
                 <td>
                   <button onClick={() => handleEdit(expense)}>Editar</button>
-                  <button onClick={() => handleDelete(id)}>Excluir</button>
+                  <button onClick={() => handleDelete(id)} data-testid='btnDelete'>Excluir</button>
                 </td>
               </tr>
             );

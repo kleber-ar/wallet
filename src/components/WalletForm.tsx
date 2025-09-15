@@ -36,6 +36,7 @@ export default function WalletForm() {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        data-testid="value-input"
         required
         placeholder="Valor"
         type="number"
@@ -44,25 +45,26 @@ export default function WalletForm() {
       />
       <input
         required
+        data-testid="description-input"
         placeholder="Descrição"
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+      <select value={currency} onChange={(e) => setCurrency(e.target.value)} data-testid="currency-input">
         {currencies.map((cur) => (
           <option key={cur} value={cur}>
             {cur}
           </option>
         ))}
       </select>
-      <select value={method} onChange={(e) => setMethod(e.target.value)}>
+      <select value={method} onChange={(e) => setMethod(e.target.value)} data-testid="method-input">
         <option>Dinheiro</option>
         <option>Cartão de crédito</option>
         <option>Cartão de débito</option>
       </select>
-      <select value={tag} onChange={(e) => setTag(e.target.value)}>
+      <select value={tag} onChange={(e) => setTag(e.target.value)} data-testid="tag-input">
         <option>Alimentação</option>
         <option>Lazer</option>
         <option>Trabalho</option>
