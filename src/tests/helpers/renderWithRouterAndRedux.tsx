@@ -30,14 +30,6 @@ function withRedux(component: React.ReactElement, store: Store) {
   );
 }
 
-export function renderWithRouter(
-  component: React.ReactElement,
-  {
-    initialEntries = ['/'],
-  }: Options = {},
-) {
-  return render(withRouter(component, initialEntries));
-}
 
 export function renderWithRedux(component: React.ReactElement, options: Options = {}) {
   const {

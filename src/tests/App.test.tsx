@@ -222,7 +222,6 @@ describe('02 [CARTEIRA] - Teste da pagina de carteira.', () => {
     const updatedExpenses3 = screen.queryAllByTestId('expense');
     expect(updatedExpenses3).toHaveLength(0);
 
-
   });
 
 
