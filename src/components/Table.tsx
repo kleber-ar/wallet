@@ -49,7 +49,7 @@ export default function Table() {
             const convertedValue = Number(value) * exchangeRate;
 
             return (
-              <tr key={id}>
+              <tr key={id} data-testid='expense'>
                 <td>{description}</td>
                 <td>{tag}</td>
                 <td>{method}</td>
@@ -59,7 +59,7 @@ export default function Table() {
                 <td>{convertedValue.toFixed(2)}</td>
                 <td>Real</td>
                 <td>
-                  <button onClick={() => handleEdit(expense)}>Editar</button>
+                  <button onClick={() => handleEdit(expense)} data-testid='btnEdit'>Editar</button>
                   <button onClick={() => handleDelete(id)} data-testid='btnDelete'>Excluir</button>
                 </td>
               </tr>
