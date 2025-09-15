@@ -2,10 +2,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import { legacy_createStore as createStore, type Store } from 'redux';
+import { applyMiddleware, legacy_createStore as createStore, type Store } from 'redux';
 import { render } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import rootReducer, { type RootState } from '../../redux/reducers';
+import { thunk } from 'redux-thunk';
 
 type Options = {
   initialEntries?: string[];
@@ -41,7 +42,7 @@ export function renderWithRouter(
 export function renderWithRedux(component: React.ReactElement, options: Options = {}) {
   const {
     initialState = {},
-    store = createStore(rootReducer, initialState),
+    store = createStore(rootReducer, initialState, applyMiddleware(thunk)),
   } = options;
 
   return {
