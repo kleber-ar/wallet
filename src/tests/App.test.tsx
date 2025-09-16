@@ -224,7 +224,46 @@ describe('02 [CARTEIRA] - Teste da pagina de carteira.', () => {
 
   });
 
+  it('Edição da despesa', async () => {
+    const { user } = renderWithRouterAndRedux(<App />, { initialEntries: ['/carteira'] });
 
+    const totalField = screen.getByTestId('total-field');
+    const valueField = screen.getByTestId("value-input");
+    const descricaoField = screen.getByTestId("description-input");
+    const metodoDePag = screen.getByTestId("method-input");
+    const tag = screen.getByTestId("tag-input");
+    const selectCurrency = screen.getByTestId('currency-input');
+    const buttonSubmit = screen.getByRole('button');
 
+    await user.type(valueField, '1');
+    await user.type(descricaoField, 'b');
+    await user.selectOptions(selectCurrency, 'BRL')
+    await user.selectOptions(metodoDePag, 'Cartão de débito');
+    await user.selectOptions(tag, 'Lazer');
+    await user.click(buttonSubmit);
+
+    expect(totalField).toHaveTextContent('1.00');
+
+    const btnEdit = screen.getByTestId('btnEdit')
+    await user.click(btnEdit);
+
+    const editValueField = screen.getByTestId("editValueInput")
+    const editDescInput = screen.getByTestId('editDescInput')
+    const editSaveBtn = screen.getByTestId('editSaveBtn');
+    const editCancelBtn = screen.getByTestId('editCancelBtn');
+
+    await user.clear(editValueField);
+    await user.clear(editDescInput);
+    await user.type(editValueField, '2');
+    await user.type(editDescInput, 'a');
+    await user.click(editSaveBtn);
+
+    expect(totalField).toHaveTextContent('2.00');
+
+    await user.click(btnEdit);
+    await user.click(editCancelBtn);
+
+    expect(totalField).not.toHaveTextContent('1.00');
+  });
 
 });

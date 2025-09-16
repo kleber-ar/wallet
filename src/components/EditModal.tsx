@@ -33,20 +33,21 @@ export default function EditExpenseModal({ expense, onClose }: EditModalProps) {
         <h2>Editar Despesa</h2>
         <form onSubmit={handleSubmit}>
           <input
+            data-testid="editValueInput"
             type="text"
             name="value"
             value={updatedExpense.value}
             onChange={handleChange}
           />
           <input
+            data-testid="editDescInput"
             type="text"
             name="description"
             value={updatedExpense.description}
             onChange={handleChange}
           />
-          {/* Adicione os outros campos (currency, method, tag) aqui com <select> */}
-          <button type="submit">Salvar Alterações</button>
-          <button type="button" onClick={onClose}>Cancelar</button>
+          <button type="submit" data-testid="editSaveBtn">Salvar Alterações</button>
+          <button type="button" onClick={onClose} data-testid="editCancelBtn">Cancelar</button>
         </form>
       </div>
     </div>

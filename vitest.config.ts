@@ -13,7 +13,9 @@ export default defineConfig({
       reportsDirectory: './coverage', // Onde salvar os relatórios
       clean: true, // Limpa os relatórios anteriores antes de gerar novos
       // include: ['src/**/*.{js,ts,jsx,tsx}'], // Opcional: especifica quais arquivos incluir na cobertura. Por padrão, o Vitest tenta cobrir tudo.
+      include: ['src/**/*.{js,ts,jsx,tsx}'], // Opcional: especifica quais arquivos incluir na cobertura. Por padrão, o Vitest tenta cobrir tudo.
       // exclude: ['src/main.tsx', 'src/vite-env.d.ts', 'src/tests/**/*'], // Opcional: exclui arquivos que você não quer que sejam cobertos.
+      exclude: ['src/main.tsx', 'src/redux/index.ts'] // Opcional: exclui arquivos que você não quer que sejam cobertos.
     },
   },
 });

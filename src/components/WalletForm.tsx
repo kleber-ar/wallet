@@ -40,7 +40,7 @@ export default function WalletForm() {
         required
         placeholder="Valor"
         type="number"
-        value={value}
+        value={parseInt(value) > 0 ? value : "0"}
         onChange={(e) => setValue(e.target.value)}
       />
       <input
