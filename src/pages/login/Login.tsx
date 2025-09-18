@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setEmail } from "../../redux/actions";
 import './Login.css';
+import Logo from "../../components/Logo";
 
 export default function Login() {
   const [email, setEmailInput] = useState('');
@@ -24,6 +25,7 @@ export default function Login() {
 
   return (
     <div className="login-page">
+      <Logo size={55} margin="10px" color="#2FC18C" />
       <div className='login-container'>
         <form onSubmit={handleSubmit}>
           <input
