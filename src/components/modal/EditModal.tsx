@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editExpense } from '../redux/actions';
-import { type ExpenseType } from '../types';
-import type { AppDispatch } from '../redux';
+import { editExpense } from '../../redux/actions';
+import { type ExpenseType } from '../../types';
+import type { AppDispatch } from '../../redux';
 import './EditModal.css';
 
 interface EditModalProps {
