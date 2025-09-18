@@ -4,6 +4,7 @@ import { deleteExpense } from "../redux/actions";
 import type { ExpenseType } from "../types";
 import { useState } from "react";
 import EditExpenseModal from "./EditModal";
+import './Table.css'
 
 export default function Table() {
   const expenses = useSelector((state: RootState) => state.wallet.expenses);
@@ -22,10 +23,13 @@ export default function Table() {
     setEditingExpense(null);
   };
 
-  return (
-    <>
-      <table border={1} cellSpacing={0} cellPadding={5}>
+  if (expenses.length === 0) {
+    return <h1 style={{ textAlign: "center", marginTop: "2rem" }}>Sem despesas</h1>;
+  }
 
+  return (
+    <div className="table-container">
+      <table>
         <thead>
           <tr>
             <th>Descrição</th>
@@ -70,7 +74,8 @@ export default function Table() {
       {
         editingExpense && (
           <EditExpenseModal expense={editingExpense} onClose={handleCloseModal} />
-        )}
-    </>
+        )
+      }
+    </div>
   );
 }

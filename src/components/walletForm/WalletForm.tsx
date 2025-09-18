@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../redux/reducers";
-import { fetchCurrencies, fetchAndAddExpense } from "../redux/actions";
-import type { AppDispatch } from "../redux";
+import type { RootState } from "../../redux/reducers";
+import { fetchCurrencies, fetchAndAddExpense } from "../../redux/actions";
+import type { AppDispatch } from "../../redux";
 import './WalletForm.css'
 
 

@@ -1,0 +1,46 @@
+.table-container {
+  padding: 5px 20px;
+  overflow-x: auto;
+}
+
+table {
+  margin: auto;
+  min-width: 885px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 10px;
+  border-left: 1px solid black;
+}
+
+th:last-of-type {
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+td {
+  padding: 8px;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  text-align: center;
+}
+
+td:last-of-type {
+  display: flex;
+  border-right: 1px solid black;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+td button {
+  margin: auto;
+  background-color: #2FC18C;
+}
+
+td button:last-of-type {
+  margin: auto;
+  background-color: red;
+}

@@ -53,10 +53,7 @@ button {
     max-width: 40%;
   }
 
-  input {
-    margin-bottom: 10px;
-  }
-
+  input,
   select {
     margin-bottom: 10px;
   }
@@ -65,7 +62,4 @@ button {
     margin: 0;
   }
 
-  .header-container p {
-    font-size: 0.9rem;
-  }
 }
