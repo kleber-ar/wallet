@@ -17,7 +17,7 @@ export default function Logo({
   showIcon = true,
   showText = true,
   text = "Wallet-app",
-  color = "0",
+  color = "#2FC18C",
   size = 32,
   background,
   padding = "0",

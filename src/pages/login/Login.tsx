@@ -25,7 +25,7 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <Logo size={55} margin="10px" color="#2FC18C" />
+      <Logo size={55} margin="10px" />
       <div className='login-container'>
         <form onSubmit={handleSubmit}>
           <input
