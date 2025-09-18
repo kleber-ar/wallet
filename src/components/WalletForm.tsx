@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/reducers";
 import { fetchCurrencies, fetchAndAddExpense } from "../redux/actions";
 import type { AppDispatch } from "../redux";
+import './WalletForm.css'
 
 
 export default function WalletForm() {
@@ -34,7 +35,8 @@ export default function WalletForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
+      <p>Valor:</p>
       <input
         data-testid="value-input"
         required
@@ -43,6 +45,7 @@ export default function WalletForm() {
         value={parseInt(value) > 0 ? value : "0"}
         onChange={(e) => setValue(e.target.value)}
       />
+      <p>Descrição:</p>
       <input
         required
         data-testid="description-input"
@@ -51,7 +54,7 @@ export default function WalletForm() {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-
+      <p>Moeda:</p>
       <select value={currency} onChange={(e) => setCurrency(e.target.value)} data-testid="currency-input">
         {currencies.map((cur) => (
           <option key={cur} value={cur}>
@@ -59,11 +62,15 @@ export default function WalletForm() {
           </option>
         ))}
       </select>
+
+      <p>Método de pagamento:</p>
       <select value={method} onChange={(e) => setMethod(e.target.value)} data-testid="method-input">
         <option>Dinheiro</option>
         <option>Cartão de crédito</option>
         <option>Cartão de débito</option>
       </select>
+
+      <p>Categoria:</p>
       <select value={tag} onChange={(e) => setTag(e.target.value)} data-testid="tag-input">
         <option>Alimentação</option>
         <option>Lazer</option>
@@ -71,8 +78,7 @@ export default function WalletForm() {
         <option>Transporte</option>
         <option>Saúde</option>
       </select>
-
       <button type="submit">Adicionar despesas</button>
-    </form>
+    </form >
   );
 }

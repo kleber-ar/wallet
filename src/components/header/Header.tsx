@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../../redux/reducers";
 import Logo from "../Logo";
-import userIcon from "../assets/user.svg";
-import coinIcon from "../assets/Moedas.svg";
+import userIcon from "../../assets/user.svg";
+import coinIcon from "../../assets/Moedas.svg";
 import './Header.css';
 
 function Header() {
@@ -27,8 +27,8 @@ function Header() {
         </div>
         <div>
           <img src={coinIcon} alt="Moedas" />
-          <p data-testid="total-field">{total.toFixed(2)}</p>
-          <p data-testid="header-currency-field">BRL</p>
+          <p data-testid="total-field">Total: R${total.toFixed(2)}</p>
+          <p data-testid="header-currency-field">(BRL)</p>
         </div>
       </header>
     </div>
