@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { editExpense } from '../redux/actions';
 import { type ExpenseType } from '../types';
 import type { AppDispatch } from '../redux';
+import './EditModal.css';
 
 interface EditModalProps {
   expense: ExpenseType;
@@ -32,6 +33,7 @@ export default function EditExpenseModal({ expense, onClose }: EditModalProps) {
       <div className="modal-content">
         <h2>Editar Despesa</h2>
         <form onSubmit={handleSubmit}>
+          <p>Valor: </p>
           <input
             data-testid="editValueInput"
             type="text"
@@ -39,6 +41,7 @@ export default function EditExpenseModal({ expense, onClose }: EditModalProps) {
             value={updatedExpense.value}
             onChange={handleChange}
           />
+          <p>Descrição: </p>
           <input
             data-testid="editDescInput"
             type="text"

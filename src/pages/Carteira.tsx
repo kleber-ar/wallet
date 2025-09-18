@@ -1,5 +1,5 @@
 import Header from "../components/header/Header";
-import Table from "../components/Table";
+import Table from "../components/table/Table";
 import WalletForm from "../components/walletForm/WalletForm";
 
 export default function Carteira() {

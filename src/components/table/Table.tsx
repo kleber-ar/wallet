@@ -27,6 +27,10 @@ export default function Table() {
     return <h1 style={{ textAlign: "center", marginTop: "2rem" }}>Sem despesas</h1>;
   }
 
+  if (editingExpense) {
+    return <EditExpenseModal expense={editingExpense} onClose={handleCloseModal} />
+  }
+
   return (
     <div className="table-container">
       <table>
@@ -71,11 +75,7 @@ export default function Table() {
           })}
         </tbody>
       </table >
-      {
-        editingExpense && (
-          <EditExpenseModal expense={editingExpense} onClose={handleCloseModal} />
-        )
-      }
+
     </div>
   );
 }
