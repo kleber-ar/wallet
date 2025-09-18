@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import type { RootState } from "../redux/reducers";
-import Logo from "./Logo";
+import type { RootState } from "../../redux/reducers";
+import Logo from "../Logo";
 import userIcon from "../assets/user.svg";
 import coinIcon from "../assets/Moedas.svg";
 import './Header.css';
