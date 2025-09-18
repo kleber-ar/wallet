@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../redux/reducers";
-import { deleteExpense } from "../redux/actions";
-import type { ExpenseType } from "../types";
+import type { RootState } from "../../redux/reducers";
+import { deleteExpense } from "../../redux/actions";
+import type { ExpenseType } from "../../types";
 import { useState } from "react";
-import EditExpenseModal from "./EditModal";
+import EditExpenseModal from "../EditModal";
 import './Table.css'
 
 export default function Table() {
