@@ -1,69 +1,47 @@
-# React + TypeScript + Vite
+# 💰 Gerenciador de Despesas
+## Projeto online: [https://kleber-ar-wallet.vercel.app](https://kleber-ar-wallet.vercel.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de controle de despesas pessoais, desenvolvida em **React**, com **Redux** para gerenciamento de estado global e testes seguindo **TDD (Test Driven Development)**.
 
-Currently, two official plugins are available:
+---
+## 💡 Observações
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - A aplicação consome uma API de cotações para valores atualizados de moedas.
+ - Todas as alterações são armazenadas em Redux, garantindo estado global consistente.
 
-## Expanding the ESLint configuration
+---
+## 🚀 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⚛️ **React** – Biblioteca para construção da interface  
+- ⚡ **Vite** - Bundler rápido para desenvolvimento moderno  
+- 🟦 **TypeScript** – Tipagem estática para maior segurança e escalabilidade  
+- 🔄 **Redux** – Gerenciamento de estado global  
+- 🧪 **Vitest + React Testing Library + Test Coverage** – Testes unitários e de integração  
+- 🎨 **CSS Modules** – Estilização modular e componentizada  
+- 📡 **API de Cotações** – Para obter valores atualizados de moedas  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Funcionalidades
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Cadastro de despesas com descrição, valor e moeda  
+- Conversão automática de valores para Real (BRL)  
+- Tabela com histórico de despesas  
+- Edição e exclusão de lançamentos  
+- Total de despesas atualizado em tempo real  
+- Interface responsiva e simples  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧪 Testes
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+O projeto foi desenvolvido seguindo **TDD (Test Driven Development)**.  
+Os testes garantem:  
+
+- Renderização correta dos componentes principais  
+- Fluxo de adicionar, editar e excluir despesas  
+- Integração **Redux + Componentes**  
+- Validação da atualização do total de despesas  
+
+**Status de Testes:**
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
